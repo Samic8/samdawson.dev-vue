@@ -7,14 +7,24 @@
             Hi, I'm Sam. I build accessible<br>
             websites and apps.
           </p>
-
-          <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" />
-          <github style="margin-left: auto"></github>
+          <g-link to="/">
+            <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" />
+          </g-link>
+          <a
+            href="https://github.com/samic8"
+            style="margin-left: auto"
+            target="_blank">
+            <github></github>
+          </a>
         </div>
 
-        <linkUnderline>
-          <a class="color-white">Get in Touch</a>
-        </linkUnderline>
+        <LinkUnderline>
+          <g-link
+            to="/contact"
+            class="color-white">
+            Get in Touch
+          </g-link>
+        </LinkUnderline>
       </section>
     </header>
     <div class="layout">
@@ -37,16 +47,38 @@ body {
   margin:0;
   padding:0;
   line-height: 1.5;
-  color: #575757;
+  color: var(--color-alias-font);
 }
 
 button {
   font-family: "Futura","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  appearance: none;
+  height: 3.2rem;
+  border-radius: 5px;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  background-color: #F1F2F4;
+  border: none;
+  color: var(--color-alias-font);
+  cursor: pointer;
+}
+
+button:hover, button:focus {
+  background-color: var(--color-alias-interaction);
+  color: var(--color-white);
 }
 
 h2 {
+  margin: var(--h2-margin) 0;
   font-size: 1rem;
   font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-alias-font);
 }
 
 .contentFont {
@@ -78,8 +110,14 @@ h2 {
   width: 86px;
   height: 86px;
   border-radius: 50%;
-  box-shadow: 0px 3px 10px rgba(2, 3, 4, 0.3);
   margin-left: 88px;
+  box-shadow: 0px 3px 10px rgba(2, 3, 4, 0.3);
+  transition: .2s box-shadow ease-out, .2s transform ease-out;
+}
+
+.gravatar:hover {
+  box-shadow: 1px 3px 10px rgba(2, 3, 4, 0.3);
+  transform: translate(-.1rem, -.2rem);
 }
 
 .nav__link {
@@ -91,28 +129,13 @@ h2 {
   color: #fff;
   margin-top:0;
 }
-
-.button {
-  appearance: none;
-  height: 3.2rem;
-  border-radius: 5px;
-  padding: 0 18px;
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  background-color: #F1F2F4;
-  border: none;
-  color: #575757;
-}
 </style>
 
 <script>
 import github from '~/assets/github.svg'
-import linkUnderline from '~/components/link-underline'
 export default {
   components: {
     github,
-    linkUnderline,
   }
 }
 </script>

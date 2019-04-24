@@ -20,7 +20,7 @@ export default {
 
 .link:hover .link__underline{
     width: 100%;
-    background-color: var(--color-medium-purple);
+    background-color: var(--color-alias-interaction);
 }
 
 .link__underline {

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <sidebar>
+    <Sidebar>
       <h1>Tech</h1>
       <ul class="techList">
         <li
@@ -11,7 +11,7 @@
         </li>
       </ul>
     </sidebar>
-    <article class="mainContent">
+    <MainContent>
       <h1>Projects</h1>
       <ul class="projects">
         <li
@@ -46,14 +46,14 @@
               <span v-if="!project.node.otherTechs.endsWith(tech)">&bull;</span>
             </span>
             <div class="flex justify-content-flex-end marg-auto-top" style="margin-top: .3rem">
-              <linkUnderline>
+              <LinkUnderline>
                 <a v-bind:href="project.node.link">See Project...</a>
-              </linkUnderline>
+              </LinkUnderline>
             </div>
           </section>
         </li>
       </ul>
-    </article>
+    </MainContent>
   </Layout>
 </template>
 
@@ -74,9 +74,6 @@ query {
 </page-query>
 
 <script>
-import linkUnderline from '~/components/link-underline.vue';
-import sidebar from '~/components/sidebar.vue';
-
 const store = {
   debug: true,
   state: {
@@ -89,10 +86,6 @@ const store = {
 }
 
 export default {
-  components: {
-    linkUnderline,
-    sidebar
-  },
   data: () => store.state,
   metaInfo: {
     title: ''
@@ -115,12 +108,6 @@ export default {
   padding: 0;
 }
 
-.mainContent {
-  flex: 1 1 auto;
-  padding-left: var(--main-content-padding);
-  max-width: var(--main-content-max-width);
-}
-
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -131,7 +118,7 @@ export default {
 }
 
 .project {
-  background-color: #F1F2F4;
+  background-color: var(--color-light-blue-grey);
   border-radius: 1px;
   padding: 0 20px;
   cursor: pointer;
