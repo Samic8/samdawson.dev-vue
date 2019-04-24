@@ -12,8 +12,8 @@
         </Sidebar>
         <MainContent>
             <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                <input type="hidden" name="contact" value="contact" />
-                <input type="text" class="input h2-margin-top" placeholder="Your email..."/>
+                <input name="email" type="hidden" name="contact" value="contact" />
+                <input name="message" type="text" class="input h2-margin-top" placeholder="Your email..."/>
                 <textarea type="text" class="input" style="margin: 1.2rem 0 .8rem; min-height: 205px;" placeholder="Your message..."/>
                 <button type="submit">Send</button>
             </form>
