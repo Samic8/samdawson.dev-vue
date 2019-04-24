@@ -1,0 +1,11 @@
+/* Colors */
+:root {
+    --color-white: #fff;
+    --color-light-purple: #CECAD3;
+    --color-medium-purple: #9875c3;
+}
+.color-white { color: var(--color-white); }
+
+/* Flexbox */
+.flex { display: flex; }
+.justify-content-flex-end { justify-content: flex-end; }
