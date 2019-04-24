@@ -3,8 +3,8 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 import LinkUnderline from '~/components/LinkUnderline.vue';
-import Sidebar from '~/components/Sidebar.vue';
 import MainContent from '~/components/MainContent.vue';
+import Sidebar from '~/components/Sidebar.vue';
 import '~/assets/utility.css';
 
 export default function (Vue, { router, head, isClient }) {
