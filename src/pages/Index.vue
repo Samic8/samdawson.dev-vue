@@ -47,7 +47,7 @@
             </span>
             <div class="flex justify-content-flex-end marg-auto-top" style="margin-top: .3rem">
               <LinkUnderline>
-                <a v-bind:href="project.node.link">See Project...</a>
+                <a v-bind:href="project.node.link" target="_blank">See Project...</a>
               </LinkUnderline>
             </div>
           </section>
@@ -67,6 +67,8 @@ query {
         name
         mainTech
         otherTechs
+        description
+        link
       }
     }
   }
