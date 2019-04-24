@@ -88,7 +88,7 @@ const store = {
 export default {
   data: () => store.state,
   metaInfo: {
-    title: ''
+    title: 'Projects'
   },
   methods: {
     setExpanded: store.setExpanded.bind(store),
