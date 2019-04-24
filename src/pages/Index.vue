@@ -22,7 +22,7 @@
           v-on:click="setExpanded(project.node.id)"
           >
           <div class="project__group">
-            <h2>{{project.node.name}}</h2>
+            <span>{{project.node.name}}</span>
             <div class="project__highlight">
               {{project.node.mainTech}}
               <div
