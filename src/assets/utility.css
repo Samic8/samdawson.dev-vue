@@ -1,8 +1,13 @@
-/* Colors */
 :root {
+    /* Colors */
     --color-white: #fff;
     --color-light-purple: #CECAD3;
     --color-medium-purple: #9875c3;
+
+    /* Layout sizes */
+    --side-bar-size: 338px;
+    --main-content-padding: 80px;
+    --main-content-max-width: 846px;
 }
 .color-white { color: var(--color-white); }
 

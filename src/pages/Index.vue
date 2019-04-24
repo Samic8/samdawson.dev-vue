@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <section class="sidebar">
+    <sidebar>
       <h1>Tech</h1>
       <ul class="techList">
         <li
@@ -10,7 +10,7 @@
           {{tech}}
         </li>
       </ul>
-    </section>
+    </sidebar>
     <article class="mainContent">
       <h1>Projects</h1>
       <ul class="projects">
@@ -75,6 +75,7 @@ query {
 
 <script>
 import linkUnderline from '~/components/link-underline.vue';
+import sidebar from '~/components/sidebar.vue';
 
 const store = {
   debug: true,
@@ -89,7 +90,8 @@ const store = {
 
 export default {
   components: {
-    linkUnderline
+    linkUnderline,
+    sidebar
   },
   data: () => store.state,
   metaInfo: {
@@ -106,13 +108,6 @@ export default {
   --project-unexpanded-height: 57px;
   --projects-grid-gap: 18px;
   --color-project-shadow: rgba(87, 87, 87, 0.22);
-}
-
-.sidebar {
-  box-sizing: border-box;
-  width: var(--side-bar-size);
-  border-right: 1px solid #F1F2F4;
-  padding: 0 50px;
 }
 
 .techList {

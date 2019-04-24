@@ -32,12 +32,6 @@ query {
 </static-query>
 
 <style>
-:root {
-  --side-bar-size: 338px;
-  --main-content-padding: 80px;
-  --main-content-max-width: 846px;
-}
-
 body {
   font-family: "Futura","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   margin:0;
