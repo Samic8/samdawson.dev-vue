@@ -2,6 +2,14 @@
   <Layout>
     <section class="sidebar">
       <h1>Tech</h1>
+      <ul class="techList">
+        <li
+          v-for="tech in $data.techs"
+          v-bind:key="tech"
+          style="margin-bottom: .2rem">
+          {{tech}}
+        </li>
+      </ul>
     </section>
     <article class="mainContent">
       <h1>Projects</h1>
@@ -72,6 +80,7 @@ const store = {
   debug: true,
   state: {
     expandedProjectIds: [],
+    techs: ['AngularJs', 'React', 'Elm', 'Vue', 'GraphQl', 'Gatsby', 'Gridsome'],
   },
   setExpanded (projectId) {
     this.state.expandedProjectIds.push(projectId);
@@ -104,6 +113,11 @@ export default {
   width: var(--side-bar-size);
   border-right: 1px solid #F1F2F4;
   padding: 0 50px;
+}
+
+.techList {
+  list-style-type: none;
+  padding: 0;
 }
 
 .mainContent {
