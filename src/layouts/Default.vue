@@ -32,15 +32,6 @@
     </div>
   </div>
 </template>
-
-<static-query>
-query {
-  metaData {
-    siteName
-  }
-}
-</static-query>
-
 <style>
 body {
   font-family: "Futura","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
