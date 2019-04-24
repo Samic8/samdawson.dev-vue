@@ -11,9 +11,11 @@
             </LinkUnderline>
         </Sidebar>
         <MainContent>
-            <input type="text" class="input h2-margin-top" placeholder="Your email..."/>
-            <textarea type="text" class="input" style="margin: 1.2rem 0 .8rem; min-height: 205px;" placeholder="Your message..."/>
-            <button>Send</button>
+            <form name="contact" method="POST" data-netlify="true">
+                <input type="text" class="input h2-margin-top" placeholder="Your email..."/>
+                <textarea type="text" class="input" style="margin: 1.2rem 0 .8rem; min-height: 205px;" placeholder="Your message..."/>
+                <button type="submit">Send</button>
+            </form>
         </MainContent>
     </Layout>
 </template>
