@@ -7,9 +7,7 @@
             Hi, I'm Sam. I build accessible<br>
             websites and apps.
           </p>
-          <g-link to="/" class="gravatarLink">
-            <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" />
-          </g-link>
+          <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" />
           <a
             href="https://github.com/samic8"
             style="margin-left: auto"
@@ -116,46 +114,32 @@ a {
   display: flex;
 }
 
-.gravatarLink {
-  --margin-left: 88px;
-  margin-left: var(--margin-left);
-  display: flex;
-
-  @include mobileBreakpoint {
-    --margin-left: auto;
-    margin-right: var(--sidebar-padding);
-  }
-
-  @media screen and (max-width: 470px) {
-    position: absolute;
-    right: 2rem;
-    bottom: 0;
-  }
-}
-
 .gravatar {
+  --margin-left: 88px;
   flex: 0 0 auto;
   width: 70px;
   height: 70px;
   border-radius: 50%;
   box-shadow: 0px 3px 10px rgba(2, 3, 4, 0.3);
   transition: .2s box-shadow ease-out, .2s transform ease-out;
+  margin-left: var(--margin-left);
 
   @include mobileBreakpoint {
+    --margin-left: auto;
+    margin-right: var(--sidebar-padding);
     width: 50px;
     height: 50px;
   }
 
   @media screen and (max-width: 470px) {
-    width: 20px;
-    height: 20px;
+    margin-right: var(--sidebar-padding);
+    position: absolute;
+    right: 0;
+    top: 5rem;
+    width: 40px;
+    height: 40px;
     box-shadow: none;
   }
-}
-
-.gravatar:hover {
-  box-shadow: 1px 3px 10px rgba(2, 3, 4, 0.3);
-  transform: translate(-.1rem, -.2rem);
 }
 
 .githubLink {
