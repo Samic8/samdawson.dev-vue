@@ -98,7 +98,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '~/assets/variables.scss';
+@import '~/assets/mixins.scss';
+
 :root {
   --project-unexpanded-height: 57px;
   --projects-grid-gap: 18px;
@@ -111,12 +114,17 @@ export default {
 }
 
 .projects {
+  --template-columns: repeat(auto-fill, #{$project-width});
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: var(--template-columns);
   grid-auto-flow: dense;
   grid-gap: var(--projects-grid-gap);
   list-style-type: none;
   padding: 0;
+
+  @include mobileBreakpoint() {
+    --template-columns: 1fr;
+  }
 }
 
 .project {

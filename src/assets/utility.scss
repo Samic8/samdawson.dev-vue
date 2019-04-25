@@ -1,3 +1,5 @@
+@import '~/assets/variables.scss';
+
 :root {
     /* Colors */
     --color-white: #fff;
@@ -11,8 +13,9 @@
     --color-alias-interaction: var(--color-medium-purple);
 
     /* Layout sizes */
-    --side-bar-size: 338px;
-    --main-content-padding: 80px;
+    --sidebar-size: 338px;
+    --sidebar-padding: 50px;
+    --main-content-padding: #{$main-content-padding};
     --main-content-max-width: 846px;
 
     /* Spacing */

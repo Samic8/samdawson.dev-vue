@@ -10,10 +10,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '~/assets/mixins.scss';
+
 .mainContent {
   flex: 1 1 auto;
-  padding-left: var(--main-content-padding);
-  max-width: var(--main-content-max-width);
+  padding: 0 var(--main-content-padding);
+
+  @include mobileBreakpoint {
+    --main-content-padding: 2.5rem;
+  }
 }
 </style>

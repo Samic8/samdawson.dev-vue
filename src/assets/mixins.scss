@@ -1,0 +1,13 @@
+@import '~/assets/variables.scss';
+
+@mixin mobileBreakpoint {
+    @media screen and (max-width: $sidebar-min-size + ($main-content-padding * 2) + $project-width) { 
+        @content;
+    }
+}
+
+@mixin midBreakpoint {
+    @media screen and (max-width: 1050px) {
+        @content
+    }
+}
