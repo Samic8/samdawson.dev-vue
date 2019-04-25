@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout v-bind:page="'home'">
     <Sidebar>
       <h1>Tech</h1>
       <ul class="techList">

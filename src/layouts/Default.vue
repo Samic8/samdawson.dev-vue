@@ -19,9 +19,9 @@
 
         <LinkUnderline>
           <g-link
-            to="/contact"
+            v-bind:to="getMainLink()"
             class="color-white">
-            Get in Touch
+            {{getMainLinkTitle()}}
           </g-link>
         </LinkUnderline>
       </section>
@@ -176,8 +176,29 @@ a {
 <script>
 import github from '~/assets/github.svg'
 export default {
+  props: {
+    page: String,
+  },
   components: {
     github,
+  },
+  methods: {
+    getMainLink() {
+      const links = {
+        contact: '/',
+        home: '/contact',
+      };
+
+      return links[this.page];
+    },
+    getMainLinkTitle() {
+      const titles = {
+        contact: 'Back to Projects',
+        home: 'Get in Touch',
+      };
+
+      return titles[this.page];
+    },
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout v-bind:page="'contact'">
         <Sidebar>
             <h1>Phone</h1>
             <LinkUnderline>
