@@ -84,6 +84,7 @@ a {
   display: grid;
   grid-template-columns: var(--template-columns);
   grid-auto-flow: dense;
+  padding-bottom: 1.5rem;
 
   @include mobileBreakpoint {
     --template-columns: 1fr;
