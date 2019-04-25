@@ -160,11 +160,17 @@ a {
 
 .githubLink {
   display: flex;
+  position: absolute;
+  top: auto;
+  right: 0;
 
   @include mobileBreakpoint {
-    position: absolute;
-    right: var(--sidebar-padding);
+    top: auto;
     bottom: 0;
+  }
+
+  @include midBreakpoint {
+    right: var(--sidebar-padding);
   }
 }
 
