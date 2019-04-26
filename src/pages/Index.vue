@@ -15,11 +15,13 @@
       <h1>Projects</h1>
       <ul class="projects">
         <li
+          tabindex="0"
           class="project"
           v-for="project in $page.allProject.edges"
           v-bind:key="project.id"
           v-bind:class="{'project--expanded': $data.expandedProjectIds.includes(project.node.id)}"
           v-on:click="setExpanded(project.node.id)"
+          @keypress.13="setExpanded(project.node.id)"
           >
           <div class="project__group">
             <span>{{project.node.name}}</span>
