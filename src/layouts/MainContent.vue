@@ -14,7 +14,6 @@ export default {
 @import '~/assets/mixins.scss';
 
 .mainContent {
-  flex: 1 1 auto;
   padding: 0 var(--main-content-padding);
 
   @include mobileBreakpoint {

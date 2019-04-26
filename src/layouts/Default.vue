@@ -79,7 +79,7 @@ a {
 }
 
 .layout {
-  --template-columns: minmax(200px, var(--sidebar-size)) minmax(min-content, var(--main-content-max-width));
+  --template-columns: minmax(200px, var(--sidebar-size)) 1fr;
   display: grid;
   grid-template-columns: var(--template-columns);
   grid-auto-flow: dense;
@@ -105,7 +105,6 @@ a {
   position: relative;
   margin-left: var(--margin-left);
   margin-right: var(--main-content-padding);
-  max-width: var(--main-content-max-width);
 
   @include midBreakpoint {
     --margin-left: var(--sidebar-padding);
