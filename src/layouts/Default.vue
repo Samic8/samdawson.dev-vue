@@ -12,7 +12,8 @@
             href="https://github.com/samic8"
             style="margin-left: auto"
             target="_blank"
-            class="githubLink">
+            class="githubLink"
+            title="Link to My Github">
             <github></github>
           </a>
         </div>
@@ -143,7 +144,14 @@ a {
 }
 
 .githubLink {
+  align-self: flex-start;
   display: flex;
+  color: var(--color-white);
+
+  &:hover {
+    transition: .2s color ease-in-out;
+    color: var(--color-alias-interaction);
+  }
 
   @include mobileBreakpoint {
     position: absolute;

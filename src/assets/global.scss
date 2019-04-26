@@ -2,21 +2,21 @@
 .link {
     display: inline-block;
     cursor: pointer;
-    transition: .1s background-color ease;
 
     &::after {
         content: '';
         display: block;
-        transition: .15s width ease, .1s background-color ease;
         height: 4px;
         width: 80%;
         background-color: var(--color-light-purple);
     }
 
     &:hover, &:focus {
+        transition: .1s background-color ease;
         outline: 0;
 
         &::after {
+            transition: .15s width ease, .1s background-color ease;
             width: 100%;
             background-color: var(--color-alias-interaction);
         }
