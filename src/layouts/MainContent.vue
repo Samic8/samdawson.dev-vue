@@ -18,7 +18,7 @@ export default {
   padding: 0 var(--main-content-padding);
 
   @include mobileBreakpoint {
-    --main-content-padding: 2.5rem;
+    --main-content-padding: var(--sidebar-padding);
   }
 }
 </style>
