@@ -89,8 +89,7 @@ a {
 }
 
 .header {
-  height: 222px;
-  padding-top: 40px;
+  padding: 2rem 0 3rem;
   background: linear-gradient(180deg, rgba(30, 84, 128, 0.8) 0%, rgba(12, 36, 54, 0.8) 100%);
   
   @include mobileBreakpoint {
