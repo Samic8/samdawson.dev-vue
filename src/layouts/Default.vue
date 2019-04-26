@@ -4,7 +4,7 @@
       <section class="header__content">
         <div class="header__content__top">
           <p class="headerWords">
-            Hi, I'm Sam. I build accessible<br>
+            Hi, I'm Sam. I build <ChangingWords></ChangingWords><br>
             websites and apps.
           </p>
           <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" />
@@ -32,6 +32,7 @@
 
 <style lang="scss">
 @import '~/assets/mixins.scss';
+
 .contentFont {
   font-family: -system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: .9rem;
@@ -138,12 +139,14 @@
 
 <script>
 import github from '~/assets/github.svg'
+import ChangingWords from '~/components/ChangingWords.vue'
 export default {
   props: {
     page: String,
   },
   components: {
     github,
+    ChangingWords,
   },
   methods: {
     getMainLink() {
