@@ -4,6 +4,7 @@
 :root {
     /* Font */
     --font-family: "Muli","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --header-words-font-size: 1.5rem;
     
     /* Colors */
     --color-white: #fff;
@@ -27,6 +28,7 @@
     /* Overrides */
     @include mobileBreakpoint {
         --sidebar-padding: 1.5rem;
+        --header-words-font-size: 1.4rem;
     }
     
     @include midBreakpoint {

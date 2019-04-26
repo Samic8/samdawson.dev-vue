@@ -127,13 +127,9 @@
 }
 
 .headerWords {
-  font-size: 1.5rem;
+  font-size: var(--header-words-font-size);
   color: #fff;
   margin-top:0;
-
-  @include mobileBreakpoint {
-    font-size: 1.4rem;
-  }
 }
 </style>
 

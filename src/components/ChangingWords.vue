@@ -13,7 +13,8 @@
   position: relative;
   display: inline-block;
   width: 5rem;
-  height: 1.7rem;
+  height: var(--header-words-font-size);
+  top: -0.16rem;
 }
 
 .word {
