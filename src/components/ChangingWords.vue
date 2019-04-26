@@ -1,10 +1,10 @@
 <template>
     <span class="changingWords">
-        <span class="word word--1">usable</span>
-        <span class="word word--2">accessible</span>
-        <span class="word word--3">fast</span>
-        <span class="word word--4">progressive</span>
-        <span class="word word--5">extendable</span>
+        <span class="word word--1">usable </span>
+        <span class="word word--2">accessible </span>
+        <span class="word word--3">fast </span>
+        <span class="word word--4">progressive </span>
+        <span class="word word--5">extendable </span>
     </span>
 </template>
 
