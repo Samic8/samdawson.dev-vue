@@ -2,13 +2,9 @@
     <Layout v-bind:page="'contact'">
         <Sidebar>
             <h1>Phone</h1>
-            <LinkUnderline>
-                <a href="tel:0432037593" class="">0432037593</a>
-            </LinkUnderline>
+            <a href="tel:0432037593" class="link">0432037593</a>
             <h1>Email</h1>
-            <LinkUnderline>
-                <a href="mailto:sam.dawson181@gmail.com" class="">sam.dawson181@gmail.com</a>
-            </LinkUnderline>
+            <a href="mailto:sam.dawson181@gmail.com" class="link">sam.dawson181@gmail.com</a>
         </Sidebar>
         <MainContent>
             <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">

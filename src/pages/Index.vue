@@ -46,9 +46,7 @@
               <span v-if="!project.node.otherTechs.endsWith(tech)">&bull;</span>
             </span>
             <div class="flex justify-content-flex-end marg-auto-top" style="margin-top: .3rem">
-              <LinkUnderline>
-                <a v-bind:href="project.node.link" target="_blank">See Project...</a>
-              </LinkUnderline>
+              <a v-bind:href="project.node.link" target="_blank" class="link">See Project...</a>
             </div>
           </section>
         </li>

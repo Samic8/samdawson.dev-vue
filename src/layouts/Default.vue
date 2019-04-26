@@ -16,14 +16,11 @@
             <github></github>
           </a>
         </div>
-
-        <LinkUnderline>
-          <g-link
-            v-bind:to="getMainLink()"
-            class="color-white">
-            {{getMainLinkTitle()}}
-          </g-link>
-        </LinkUnderline>
+        <g-link
+          v-bind:to="getMainLink()"
+          class="link color-white">
+          {{getMainLinkTitle()}}
+        </g-link>
       </section>
     </header>
     <div class="layout">
