@@ -108,7 +108,8 @@
   display: flex;
   color: var(--color-white);
 
-  &:hover {
+  &:hover, &:focus {
+    outline: 0;
     transition: .2s color ease-in-out;
     color: var(--color-alias-interaction);
   }
