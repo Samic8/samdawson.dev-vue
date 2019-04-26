@@ -13,7 +13,7 @@
         background-color: var(--color-light-purple);
     }
 
-    &:hover, &:active {
+    &:hover, &:focus {
         outline: 0;
 
         &::after {
