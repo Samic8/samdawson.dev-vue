@@ -6,6 +6,7 @@
         <li
           v-for="tech in $data.techs"
           v-bind:key="tech"
+          class="techList__tech"
           style="margin-bottom: .2rem">
           {{tech}}
         </li>
@@ -189,6 +190,15 @@ export default {
   width: 18px;
   height: 18px;
   background-color: currentColor;
+}
+
+.techList__tech {
+  @include mobileBreakpoint {
+    display: inline;
+    &:not(:last-child)::after {
+      content: '•';
+    }
+  }
 }
 
 .vue {
