@@ -80,7 +80,7 @@ const store = {
   debug: true,
   state: {
     expandedProjectIds: [],
-    techs: ['AngularJs', 'React', 'Elm', 'Vue', 'Node', 'GraphQl', 'Gatsby', 'Gridsome'],
+    techs: ['AngularJs', 'React', 'Elm', 'Vue', 'Node', 'GraphQl', 'Gatsby', 'Gridsome', 'D3', 'Webpack', 'Sass', 'CSS', 'HTML'].sort(),
   },
   setExpanded (projectId) {
     this.state.expandedProjectIds.push(projectId);
