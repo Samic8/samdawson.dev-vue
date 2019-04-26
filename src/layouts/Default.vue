@@ -90,7 +90,13 @@ a {
 
 .header {
   height: 222px;
-  background: linear-gradient(180deg, rgba(30, 84, 128, 0.8) 0%, rgba(12, 36, 54, 0.8) 100%)
+  padding-top: 40px;
+  background: linear-gradient(180deg, rgba(30, 84, 128, 0.8) 0%, rgba(12, 36, 54, 0.8) 100%);
+  
+  @include mobileBreakpoint {
+    height: auto;
+    padding: 1.5rem 0;
+  }
 }
 
 .header__content {
@@ -98,7 +104,6 @@ a {
   position: relative;
   margin-left: var(--margin-left);
   margin-right: var(--main-content-padding);
-  padding-top: 40px;
   max-width: var(--main-content-max-width);
 
   @include midBreakpoint {
@@ -122,16 +127,15 @@ a {
 
   @include mobileBreakpoint {
     --margin-left: auto;
-    margin-right: var(--sidebar-padding);
     width: 50px;
     height: 50px;
   }
 
-  @media screen and (max-width: 470px) {
-    margin-right: var(--sidebar-padding);
+  @media screen and (max-width: 480px) {
+    --margin-left: auto;
     position: absolute;
     right: 0;
-    top: 5rem;
+    top: 2.5rem;
     width: 40px;
     height: 40px;
     box-shadow: none;
