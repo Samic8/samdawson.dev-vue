@@ -14,7 +14,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Sidebar', Sidebar)
   head.link.push({
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css?family=Futura'
+    href: 'https://fonts.googleapis.com/css?family=Muli:400,600,700'
   })
 }
 

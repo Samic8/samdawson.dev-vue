@@ -24,7 +24,7 @@
           @keypress.13="setExpanded(project.node.id)"
           >
           <div class="project__group">
-            <span>{{project.node.name}}</span>
+            <b>{{project.node.name}}</b>
             <div class="project__highlight">
               {{project.node.mainTech}}
               <div

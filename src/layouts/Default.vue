@@ -33,7 +33,8 @@
 @import '~/assets/mixins.scss';
 
 body {
-  font-family: "Futura","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: "Muli","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-weight: 600;
   margin:0;
   padding:0;
   line-height: 1.5;
@@ -63,7 +64,7 @@ button:hover, button:focus {
 h2 {
   margin: var(--h2-margin) 0;
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 a {
@@ -74,6 +75,7 @@ a {
 .contentFont {
   font-family: -system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: .9rem;
+  font-weight: normal;
 }
 
 .layout {
