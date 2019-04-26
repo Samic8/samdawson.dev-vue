@@ -21,13 +21,19 @@
 
     /* Spacing */
     --h2-margin: 1.2rem;
-}
 
-@include mobileBreakpoint {
-    :root {
+    /* Overrides */
+    @include mobileBreakpoint {
         --sidebar-padding: 1.5rem;
     }
+    
+    @include midBreakpoint {
+        --sidebar-padding: 1.5rem;
+        --main-content-padding: 2rem;
+        --main-content-max-width: 100%;
+    }
 }
+
 
 .color-white { color: var(--color-white); }
 

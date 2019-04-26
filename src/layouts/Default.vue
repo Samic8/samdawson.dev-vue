@@ -95,16 +95,14 @@ a {
 
 .header__content {
   --margin-left: calc(var(--main-content-padding) + var(--sidebar-size));
-  --margin-right: var(--main-content-padding); 
   position: relative;
   margin-left: var(--margin-left);
-  margin-right: var(--margin-right);
+  margin-right: var(--main-content-padding);
   padding-top: 40px;
   max-width: var(--main-content-max-width);
 
   @include midBreakpoint {
     --margin-left: var(--sidebar-padding);
-    --margin-right: 0;
   }
 }
 
@@ -142,17 +140,13 @@ a {
 
 .githubLink {
   display: flex;
-  position: absolute;
-  top: auto;
-  right: 0;
 
   @include mobileBreakpoint {
+    position: absolute;
+    top: auto;
+    right: 0;
     top: auto;
     bottom: 0;
-  }
-
-  @include midBreakpoint {
-    right: var(--sidebar-padding);
   }
 }
 
