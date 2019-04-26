@@ -37,7 +37,7 @@
           <section v-if="$data.expandedProjectIds.includes(project.node.id)">
             <div
               class="contentFont">
-              {{project.node.description}}
+              {{project.node.description}}.
             </div>
             <h2 style="margin-bottom: .3rem">All Tech</h2>
             <span
@@ -180,5 +180,9 @@ export default {
 
 .react {
   color: #67DAF9;
+}
+
+.elm {
+  color: #55ACC5;
 }
 </style>
