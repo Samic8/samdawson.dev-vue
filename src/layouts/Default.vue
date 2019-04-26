@@ -32,47 +32,6 @@
 
 <style lang="scss">
 @import '~/assets/mixins.scss';
-
-body {
-  font-family: "Muli","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-weight: 600;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-  color: var(--color-alias-font);
-}
-
-button {
-  font-family: "Futura","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  appearance: none;
-  height: 3.2rem;
-  border-radius: 5px;
-  padding: 0 3rem;
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  background-color: #F1F2F4;
-  border: none;
-  color: var(--color-alias-font);
-  cursor: pointer;
-}
-
-button:hover, button:focus {
-  background-color: var(--color-alias-interaction);
-  color: var(--color-white);
-}
-
-h2 {
-  margin: var(--h2-margin) 0;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-a {
-  text-decoration: none;
-  color: var(--color-alias-font);
-}
-
 .contentFont {
   font-family: -system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: .9rem;
