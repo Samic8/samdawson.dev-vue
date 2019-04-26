@@ -1,10 +1,14 @@
 <template>
     <Layout v-bind:page="'contact'">
         <Sidebar>
-            <h1>Phone</h1>
-            <a href="tel:0432037593" class="link">0432037593</a>
-            <h1>Email</h1>
-            <a href="mailto:sam.dawson181@gmail.com" class="link">sam.dawson181@gmail.com</a>
+            <h1 class="hidden-on-mobile">Phone</h1>
+            <div class="linkContainer">
+                <a href="tel:0432037593" class="link">0432037593</a>
+            </div>
+            <h1 class="hidden-on-mobile">Email</h1>
+            <div class="linkContainer">
+                <a href="mailto:sam.dawson181@gmail.com" class="link">sam.dawson181@gmail.com</a>
+            </div>
         </Sidebar>
         <MainContent>
             <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
@@ -25,7 +29,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '~/assets/mixins.scss';
+
 .input {
     background-color: var(--color-light-blue-grey);
     box-shadow: inset 0px 0px 2px rgba(186, 199, 210, 0.54);
@@ -35,5 +41,11 @@ export default {
     border: none;
     border-radius: 4px;
     font-size: 1rem;
+}
+
+.linkContainer {
+    @include mobileBreakpoint {
+        margin-top: 1rem;
+    }
 }
 </style>

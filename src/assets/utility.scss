@@ -31,3 +31,10 @@
 .h2-margin-top {
     margin-top: var(--h2-margin);
 }
+
+// Media Queries
+.hidden-on-mobile {
+    @include mobileBreakpoint {
+        display: none;
+    }
+}
