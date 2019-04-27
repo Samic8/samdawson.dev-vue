@@ -24,6 +24,12 @@ module.exports = {
         typeName: 'Project',
       }
     },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-93793174-3'
+      }
+    }
   ],
   chainWebpack: config => {
     // Svg's
