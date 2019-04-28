@@ -3,7 +3,7 @@
         <Sidebar>
             <h1 class="hidden-on-mobile">Phone</h1>
             <div class="linkContainer">
-                <a href="tel:0432037593" class="link">0432037593</a>
+                <a href="tel:+61432037593" class="link">+61432037593</a>
             </div>
             <h1 class="hidden-on-mobile">Email</h1>
             <div class="linkContainer">
