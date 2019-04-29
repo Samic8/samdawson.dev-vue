@@ -7,7 +7,7 @@
             Hi, I'm Sam. I build <ChangingWords></ChangingWords><br>
             websites and apps.
           </p>
-          <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" />
+          <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" alt="Headshot of myself" />
           <div class="accountLinks">
             <a
               href="https://codepen.io/Samic8/"
