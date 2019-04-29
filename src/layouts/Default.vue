@@ -10,10 +10,16 @@
           <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" />
           <div class="accountLinks">
             <a
+              href="https://codepen.io/Samic8/"
+              target="_blank"
+              class="accountLinks__link"
+              title="Link to My Codepen">
+              <codepen></codepen>
+            </a>
+            <a
               href="https://github.com/samic8"
               target="_blank"
               class="accountLinks__link"
-              style="margin-right: .7rem"
               title="Link to My Github">
               <github></github>
             </a>
@@ -128,10 +134,14 @@
 
 .accountLinks__link {
   color: var(--color-white);
-   &:hover, &:focus {
+  &:hover, &:focus {
     outline: 0;
     transition: .2s color ease-in-out;
     color: var(--color-alias-interaction);
+  }
+
+  &:not(:last-child) {
+    margin-right: .65rem;
   }
 }
 
@@ -149,6 +159,7 @@
 <script>
 import github from '~/assets/github.svg'
 import gitlab from '~/assets/gitlab.svg'
+import codepen from '~/assets/codepen.svg'
 import ChangingWords from '~/components/ChangingWords.vue'
 export default {
   props: {
@@ -157,6 +168,7 @@ export default {
   components: {
     github,
     gitlab,
+    codepen,
     ChangingWords,
   },
   methods: {
