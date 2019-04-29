@@ -8,14 +8,23 @@
             websites and apps.
           </p>
           <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" />
-          <a
-            href="https://github.com/samic8"
-            style="margin-left: auto"
-            target="_blank"
-            class="githubLink"
-            title="Link to My Github">
-            <github></github>
-          </a>
+          <div class="accountLinks">
+            <a
+              href="https://github.com/samic8"
+              target="_blank"
+              class="accountLinks__link"
+              style="margin-right: .7rem"
+              title="Link to My Github">
+              <github></github>
+            </a>
+            <a
+              href="https://gitlab.com/samic8"
+              target="_blank"
+              class="accountLinks__link"
+              title="Link to My GitLab">
+              <gitlab></gitlab>
+            </a>
+          </div>
         </div>
         <g-link
           v-bind:to="getMainLink()"
@@ -103,16 +112,10 @@
   }
 }
 
-.githubLink {
+.accountLinks {
   align-self: flex-start;
   display: flex;
-  color: var(--color-white);
-
-  &:hover, &:focus {
-    outline: 0;
-    transition: .2s color ease-in-out;
-    color: var(--color-alias-interaction);
-  }
+  margin-left: auto;
 
   @include mobileBreakpoint {
     position: absolute;
@@ -120,6 +123,15 @@
     right: 0;
     top: auto;
     bottom: 0;
+  }
+}
+
+.accountLinks__link {
+  color: var(--color-white);
+   &:hover, &:focus {
+    outline: 0;
+    transition: .2s color ease-in-out;
+    color: var(--color-alias-interaction);
   }
 }
 
@@ -136,6 +148,7 @@
 
 <script>
 import github from '~/assets/github.svg'
+import gitlab from '~/assets/gitlab.svg'
 import ChangingWords from '~/components/ChangingWords.vue'
 export default {
   props: {
@@ -143,6 +156,7 @@ export default {
   },
   components: {
     github,
+    gitlab,
     ChangingWords,
   },
   methods: {
