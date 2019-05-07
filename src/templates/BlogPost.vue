@@ -51,6 +51,10 @@ export default {
       margin-bottom: 1rem;
     }
 
+    pre[class*="language-"] {
+      color: var(--color-alias-font);
+    }
+
     a {
       color: #4dba87;
       text-decoration: underline;
