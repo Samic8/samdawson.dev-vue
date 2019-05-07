@@ -36,8 +36,8 @@ Cross-origin resource sharing (CORS) is a web standard for communicating with se
 There was an assumption in the early days of the web that websites would not need to load resources from other origins and doing so was a security risk. CORS has become a standard as a response to developers working around the cross-origin restriction with JSONP because loading resources from other origins become a useful pattern. Some of the benefits include having to host your own fonts, loading analytics tracking and images. CORS gives web servers fine-grained control over what origins are allowed to access resources and the shape of those requests.
 
 For the following examples, we will be using these names for origin and cross-origin server 
-Current origin: https://client.com - The origin the initial page was loaded from
-Cross-Origin Server: https://server.com
+Current origin: `https://client.com` - The origin the initial page was loaded from
+Cross-Origin Server: `https://server.com`
 
 ### How does it work in the browser?
 #### Simple Request
@@ -45,7 +45,7 @@ There a few [characteristics of a request that will make it a "simple request"](
 
 ![Simple Example](images/Simple.png)
 
-The request is sent to the cross-origin server using the HTTP method GET. If successful the server will respond with the header "Access-Control-Allow-Origin" with a value of * or https://client.com. If the header has either of those values the response should already contain the requested content. The requested content, in this case, was some JSON data.
+The request is sent to the cross-origin server using the HTTP method GET. If successful the server will respond with the header "Access-Control-Allow-Origin" with a value of * or `https://client.com`. If the header has either of those values the response should already contain the requested content. The requested content, in this case, was some JSON data.
 
 ##### Note on Access-Control-Allow-Origin Header
 ```
@@ -53,9 +53,9 @@ Access-Control-Allow-Origin: *
 ```
 Denotes that the server can request can be sent/received from any origin
 ```
-Access-Control-Allow-Origin: https://client.com
+Access-Control-Allow-Origin: `https://client.com`
 ```
-This would mean that the request can only come from https://client.com. Whitelisting servers might be useful for origins that you control but are under different domains for organizational reasons.
+This would mean that the request can only come from `https://client.com`. Whitelisting servers might be useful for origins that you control but are under different domains for organizational reasons.
 
 #### Preflighted Requests
 Requests that require the use of HTTP methods [other than the ones allowed in "simple requests"](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Preflighted_requests) will require a "preflight" request which involves additional round trips to the cross-origin server to confirm available methods before the requester can proceed with the desired HTTP request method. Requests will also be preflighted by the browser if the headers contain any other headers then the ones automatically set by the client, these additional headers will also need to be confirmed by the cross-origin server before proceeding with the real request.
