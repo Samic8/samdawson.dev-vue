@@ -5,7 +5,7 @@ slug: questions
 ## Q1. What is the benefit of using a library like React/Vue/Angular vs using plain old JavaScript? What is your experience level with one of those frameworks?
 
 ### Benefits
-As an analogy when a builder goes about building a house they do not start from raw material and make their own bricks or PVC pipes. Likewise, a developer might choose a web framework because it provides the standard building blocks, much like the bricks and PVC pipe of the construction analogy. The web framework should include some of the most common tasks that developers will need when building an application.
+As an analogy when building a house a builder probably won't begin by making their own bricks or PVC pipes. Likewise, a developer might choose a web framework because it provides some of the standard building blocks of a web application.
 
 When you choose to use a framework over vanilla javascript you are choosing to hand over some architectural decisions to that framework. Different frameworks include varying amounts of architectural decisions, whatever framework you choose you are choosing some level of abstraction. The abstraction layer that most frameworks provide allow for some "syntactic sugar" such as vue's `.vue` files and reacts JSX, with the help of compilers of course.
 
