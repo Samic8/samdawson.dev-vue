@@ -26,61 +26,57 @@ export default {
   }
 </page-query>
 
-<style>
-  /* .header {
-    margin-bottom: 70px;
-  } */
-
+<style lang="scss">
   .article {
     margin-top: 15px;
     margin: 15px auto;
     max-width: 60rem;
     padding: 0 2rem;
-  }
 
-  .article h1 {
-    font-size: 40px;
-  }
+    h1 {
+      font-size: 40px;
+    }
 
-  .article h4 {
-    margin-bottom: .2rem;
-  }
+    h4 {
+      margin-bottom: .2rem;
+    }
 
-  .article img {
-    max-width: 100%;
-    border-radius: 5px;
-    margin-bottom: 3rem;
-  }
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 1em;
+    }
 
-  .article pre {
-    margin-bottom: 3rem;
-  }
+    pre {
+      margin-bottom: 1rem;
+    }
 
-  .article a {
-    color: #4dba87;
-    text-decoration: underline;
-  }
+    a {
+      color: #4dba87;
+      text-decoration: underline;
+    }
 
-  .article a:hover {
-    text-decoration: none;
-  }
+    a:hover {
+      text-decoration: none;
+    }
 
-  .article ol, .article ul {
-    list-style-position: outside;
-  }
+    ol, ul {
+      list-style-position: outside;
+    }
 
-  .article ul {
-    list-style: disc;
-    padding-left: 20px;
-  }
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
 
-  .article .content p:first-child {
-    margin-top: 15px;
-  }
+    .content p:first-child {
+      margin-top: 15px;
+    }
 
-  .article .content p {
-    margin-top: 0;
-    margin-bottom: 10px;
-    line-height: 1.5;
+    .content p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
   }
 </style>
