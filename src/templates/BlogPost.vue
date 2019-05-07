@@ -29,9 +29,9 @@ export default {
 <style lang="scss">
   .article {
     margin-top: 15px;
-    margin: 15px auto;
+    margin: 1rem auto;
     max-width: 60rem;
-    padding: 0 2rem;
+    padding: 0 1rem;
 
     h1 {
       font-size: 40px;
