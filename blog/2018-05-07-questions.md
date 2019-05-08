@@ -228,7 +228,7 @@ The page has two modes to display data:
 **WORK** mode visualizes the amount of time each project has allocated to it, aiming to give a manager the ability to identify projects that are under or over-resourced and allocate resources appropriately. 
 ![Work mode screenshot](images/work.png)
 
-### Data, Data, Data!
+### Much Data
 The page can potentially load large amounts of data which translated to many angular components on the page at one time. Each square (as seen screenshots above) was a component that does some of its own calculations once it gets data passed into its props/bindings, this component architecture caused major slowdown during re-renders after data changes and during any angular digest.
 
 An angular digest cycle can happen after any browser event. If many data listeners are set up (which most components have a few each), angular will do "dirty checking" meaning it checks every potential data point for changes on each of these components to determine if it needs to re-render the component.
