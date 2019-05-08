@@ -7,7 +7,7 @@ slug: questions
 ### Benefits
 As an analogy when building a house a builder probably won't begin by making their own bricks or PVC pipes. Likewise, a developer might choose a web framework because it provides some of the standard building blocks of a web application.
 
-When you choose to use a framework over vanilla javascript you are choosing to hand over some architectural decisions to that framework. Different frameworks include varying amounts of architectural decisions, whatever framework you choose you are choosing some level of abstraction. The abstraction layer that most frameworks provide allow for some "syntactic sugar" such as vue's `.vue` files and reacts JSX, with the help of compilers of course.
+When you choose to use a framework over plain javascript you are choosing to hand over some architectural decisions to that framework. Different frameworks include varying amounts of architectural decisions, whatever framework you choose you are choosing some level of abstraction. The abstraction layer that most frameworks provide allow for some "syntactic sugar" such as vue's `.vue` files and reacts JSX, with the help of compilers of course.
 
 Most frameworks come with opinionated ways of doing common tasks, hopefully allowing developers to spend less time on the infrastructure of their application and more time in the problem domain of the application. Depending on the framework, it will hopefully improve code quality because by reducing visible complexity in your code (the framework might be complex but you don't need to know) making your application simpler and easier to reason about.
 
