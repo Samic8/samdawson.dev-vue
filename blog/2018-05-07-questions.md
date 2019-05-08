@@ -7,26 +7,30 @@ slug: questions
 ### Benefits
 As an analogy when building a house a builder probably won't begin by making their own bricks or PVC pipes. Likewise, a developer might choose a web framework because it provides some of the standard building blocks of a web application.
 
-When you choose to use a framework over plain javascript you are choosing to hand over some architectural decisions to that framework. Different frameworks include varying amounts of architectural decisions, whatever framework you choose you are choosing some level of abstraction. The abstraction layer that most frameworks provide allow for some "syntactic sugar" such as vue's `.vue` files and reacts JSX, with the help of compilers of course.
+When you choose to use a framework over plain javascript you are choosing to hand over some architectural decisions to that framework. Different frameworks include varying amounts of architectural decisions, whatever framework you choose you are choosing some level of abstraction. The abstraction layer that most frameworks provide, with the help of compilers allow for some "syntactic sugar" such as vue's `.vue` files and reacts JSX.
 
-Most frameworks come with opinionated ways of doing common tasks, hopefully allowing developers to spend less time on the infrastructure of their application and more time in the problem domain of the application. Depending on the framework, it will hopefully improve code quality because by reducing visible complexity in your code (the framework might be complex but you don't need to know) making your application simpler and easier to reason about.
+Most frameworks come with opinionated ways of doing common tasks, hopefully allowing developers to spend less time on the infrastructure of their application and more time in the problem domain of the application. Depending on the framework, it might improve code quality because by reducing visible complexity in your code (the framework might be complex but you don't need to know) making the code you write simpler and easier to reason about.
 
 In the frameworks that focus on the view layer (react, vue) one of the main advantages is keeping your data in sync with the DOM (data binding) and doing this syncing in a performant way with [virtual DOM diffing](https://www.codecademy.com/articles/react-virtual-dom). Frameworks with wider scopes like Angular2+ come with more architectural decisions already made for you such as routing, data flow, and helper functions for common tasks.
 
 ### Experience level with one framework (AngularJS)
 Estimations of my experience levels AngularJS: 9.5/10
+
 As most of our frontend code at Accelo is written in AngularJS and because I work for Accelo full-time it is the framework I am most experienced in, maybe that is not ideal for future job prospects... because its not a framework that would likely be chosen for newer projects. 
 
 I am appreciative of my time with AngularJS and there are ways of architecting your code that makes it feel more modern, we have spent time putting style guides together to help us write maintainable code with AngularJS and avoid some bad practices. At Accelo we are currently working on deciding on if we want to migrate away from AngularJS, so far its been interesting to experiment with adding other frameworks to our application and seeing how we can make them work with AngularJS.
 
 ### Other Framework Experience Levels
 React 8/10
+
 My experience with React comes from some internal projects at Accelo and some freelance websites built using [GatsbyJS](https://www.gatsbyjs.org/).
 
 Vue 6/10
+
 My experience with Vue currently is only with my personal website. I enjoyed the small amount of time I have spent with Vue and I think it will be very easy to pick up for me since it has a heavy AngularJS influence (and the docs are great!).
 
 Elm 6/10
+
 My experience with Elm comes from a side-project I am working on, having a lot of fun with it. Elm is different in that it compiles to JavaScript, but it still is comparable to other frameworks.
 
 ## Q2. When is CORS needed and how does it work in the browser?
