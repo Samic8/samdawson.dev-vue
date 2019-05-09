@@ -10,7 +10,9 @@ import 'prismjs/themes/prism.css'
 export default {
   metaInfo () {
     return {
-      title: this.$page.blogPost.title
+      title: this.$page.blogPost.title,
+      // TODO remove no index?
+      meta: { name: 'robots', content: 'noindex'},
     }
   }
 }
