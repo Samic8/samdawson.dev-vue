@@ -12,7 +12,7 @@ export default {
     return {
       title: this.$page.blogPost.title,
       // TODO remove no index?
-      meta: { name: 'robots', content: 'noindex'},
+      meta: [{ name: 'robots', content: 'noindex'}],
     }
   }
 }
