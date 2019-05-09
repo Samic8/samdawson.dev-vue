@@ -152,6 +152,12 @@ export default {
   cursor: pointer;
   height: var(--project-unexpanded-height);
   transition: .2s box-shadow, .2s transform, .2s height ease-out;
+
+  h2 {
+    margin: var(--h2-margin) 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }
 }
 
 .project:not(.project--expanded):hover {

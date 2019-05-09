@@ -35,10 +35,6 @@ export default {
     max-width: 60rem;
     padding: 0 1rem;
 
-    h1 {
-      font-size: 40px;
-    }
-
     h4 {
       margin-bottom: .2rem;
     }
