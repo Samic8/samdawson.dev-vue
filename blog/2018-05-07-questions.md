@@ -233,7 +233,7 @@ The page has two modes to display data:
 ![Work mode screenshot](images/work.png)
 
 ### Much Data
-The page can potentially load large amounts of data which translated to many angular components on the page at one time. Each square (as seen screenshots above) was a component that does some of its own calculations once it gets data passed into its props/bindings, this component architecture caused major slowdown during re-renders after data changes and during any angular digest.
+The page can potentially load large amounts of data which translated to many angular components on the page at one time. Each square (as seen screenshots above) was a component that does some of its own calculations once it gets data passed into its props/bindings, this component architecture caused major slowdown during re-renders after data changes and during any angular digest. For the rendering of squares on the screen we can represent the time as O(n).
 
 An angular digest cycle can happen after any browser event. If many data listeners are set up (which most components have a few each), angular will do "dirty checking" meaning it checks every potential data point for changes on each of these components to determine if it needs to re-render the component.
 
