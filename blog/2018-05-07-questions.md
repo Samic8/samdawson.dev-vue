@@ -2,8 +2,6 @@
 title: Questions
 slug: questions
 ---
-This document is also viewable on the web at: https://samdawson.dev/questions
-
 ## Q1. What is the benefit of using a library like React/Vue/Angular vs using plain old JavaScript? What is your experience level with one of those frameworks?
 
 ### Benefits
