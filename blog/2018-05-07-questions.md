@@ -46,7 +46,7 @@ Cross-Origin Server: `https://server.com`
 
 ### How does it work in the browser?
 #### Simple Request
-There a few [characteristics of a request that will make it a "simple request"](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests). For example, in the diagram below we are using a GET method which could be a "simple request". 
+There are few [characteristics of a request that will make it a "simple request"](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests). For example, in the diagram below we are using a GET method which could be a "simple request". 
 
 ![Simple Example](images/Simple.png)
 
@@ -77,25 +77,33 @@ Cross-Site Scripting (XSS) is a security exploit in browsers that enables an att
 ### What can lead to one
 For an XSS attack to occur a developer must build into a website a way to inject HTML content without sufficient validation or encoding, which unfortunately can be easy to accidentally do.
 
-For example in a chat application where users can send each other text (string) messages the application might print the message from user1 to *user 2*. If *user 1* were to send *user 2* text that looks like HTML `hi<script>console.log('hi')</script>` and then application adds the text message in a unsafe way using `HTMLElement.innerHTML` the script will be executed because the text message from *user 1* was valid HTML. This could be a form of a [stored XSS attack](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting) because most likely this chat application will store users messages in a database and then every time the chat is loaded the same HTML will be injected into the page.
+For example in a chat application where users can send each other text (string) messages the application might print the message from *user 1* to *user 2*. If *user 1* were to send *user 2* text that looks like HTML
+```
+hi<script>console.log('hi')</script>
+```
+Then application adds the text message in a unsafe way using 
+```
+HTMLElement.innerHTML = "hi<script>console.log('hi')</script>"
+```
+The script will be executed because the text message from *user 1* was valid HTML. This could be a form of a [stored XSS attack](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting) because most likely this chat application will store users messages in a database and then every time the chat is loaded the same HTML will be injected into the page.
 
-When this might be considered an attack is when the script does something malicious such as prompting *user 2* for sensitive information or sending off all of *user 2*'s activity to a remote server (and even taking advantage of CORS to do so). Once the script is running on a page it has full access to anything within the page.
+When this might be considered an attack is when the script does something malicious such as prompting *user 2* for sensitive information or sending off all of *user 2*s activity to a remote server (and even taking advantage of CORS to do so). Once the script is running on a page it has full access to anything within the page.
 
 ### How it can be prevented
 #### Escaping
-Escaping involves turning characters into encoded versions that the browser won't confuse for HTML '>' turns into '&gt;'. Escaping should be done before inserting any un-trusted data into a web page, there are even cases where [scripts can run in style/CSS blocks](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md#rule-4---css-escape-and-strictly-validate-before-inserting-untrusted-data-into-html-style-property-values) therefore you want to not only encode dynamic un-trusted HTML, but also CSS and JS.
+Escaping involves turning characters into encoded versions that the browser won't confuse for HTML. Escaping should be done before inserting any un-trusted data into a web page that is not intended to be HTML, CSS or JS. There are even cases where [scripts can run in style/CSS blocks](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md#rule-4---css-escape-and-strictly-validate-before-inserting-untrusted-data-into-html-style-property-values) therefore you want to not only encode dynamic un-trusted HTML, but also CSS and JS.
 #### Sanitizing
-Sanitizing involves stripping content for potentially exploitable characters in the text. For example, removing specific HTML tags `<script>` before including any un-trusted content on your web page. Sanitizing is useful when a web page needs to allow dynamic user-created HTML, CSS, JS to display on a page. When using a sanitizer it is safer to use a whitelist to allow the content you want rather than using a blacklist to ban bad content because blacklisting involves having to know all the potentially exploitable content, although whitelisting is more restrictive.
+Sanitizing involves stripping content of any potentially exploitable characters in the text. For example, removing specific HTML tags `<script>` before including any un-trusted content on your web page. Sanitizing is useful when a web page needs to allow dynamic HTML, CSS, JS to display on a page which is user-created or from a source outside of your control. When using a sanitizer it is safer to use a whitelist to allow the content you want rather than using a blacklist to ban bad content because blacklisting involves having to know all the potentially exploitable content, although whitelisting is more restrictive.
 
 ## Q4. Tell us about your latest "hard to debug" problem. How did you resolve it? Which tools did you use?
-At Accelo we have a custom event messaging system, it is used to broadcast messages to any configured event listeners within the application.
+At Accelo we have a custom event messaging system, it is used to broadcast messages and receive messages.
 
 To configure an event listener you can set up a callback with an associated string key
 ```js
 on('task-shortcut-pressed', function openTaskPopup(Id, title) { /* do things... */ })
 ```
 
-To trigger an event an *eventKey* is used as the first param, any additional arguments are passed into the callback function registered in **on**
+To trigger an event an *eventKey* is used as the first parameter, any additional arguments are passed into the callback function registered in **on**
 ```js
 trigger(/* eventKey */'task-shortcut-pressed', /* Id */ 187 , /* title */ 'my new task')
 ```
@@ -104,12 +112,12 @@ Now to the problem, sometimes when pressing the shortcut to open the task popup 
 
 This problem was "hard to debug" because it would not appear consistently every time the shortcut was pressed. I had to first identify a reproducible set of steps to trigger the bug within the browser before I could begin diving into the code.
 
-Once I had a set of reproducible steps, it was time open up the chrome dev tools. The first attempt at debugging this problem was to add a couple of breakpoint in the dev tools in our **popup manager** (don't want to go into this now, but it is a singleton that controls what popups are appearing on screen) and it was clear the popup was being triggered multiple times but the source of the problem did not seem to be there. The popup manager has some code that was meant to prevent this duplication, but it seems it was not working either. Although I could have solved the problem here I knew this was not the root issue, so I created a note for myself to come back and fix the popup manager issue and kept digging.
+Once I had a set of reproducible steps, it was time open up the chrome dev tools. The first attempt at debugging this problem was to add a couple of breakpoints in the dev tools in our **popup manager** (don't want to go into this now, but it is a singleton that controls what popups are appearing on screen) and it was clear the popup was being triggered multiple times but the source of the problem did not seem to be there. The popup manager has some code that was meant to prevent this duplication, but it seems it was not working either. Although I could have solved the problem here I knew this was not the root issue, so I created a note for myself to come back and fix the popup manager issue and kept digging.
 
-From a call-stack within a breakpoint in the **on** callback, I could see that there were multiple calls from the "keyup" browser event. Opening the 'event listeners' tab in the dev tools then revealed that there were multiple "keyup" event listeners being registered from the same location in our code. Now it was time to go digging into where the "keyup" listener was registered.
+From a call-stack within a breakpoint in the **on** callback, I could see that there were multiple calls from the "keyup" browser event. Opening the "event listeners" tab in the dev tools then revealed that there were multiple "keyup" event listeners being registered from the same location in our code. Now it was time to go digging into where the "keyup" listener was registered.
 
 ### What I found in the existing code
-For some events, we have special setup functions that are called when the first **on** callback is registered for a specific event key.
+For some events, we have special setup functions that is called when the first **on** callback is registered for a specific event key.
 ```js
 const eventSetups = {
     'task-shortcut-pressed': () => {
@@ -160,27 +168,32 @@ Can you see where the bug was? In the event that all of the events were unregist
 ```js
 const callback = () => openPopup();
 
-// Internally ON function now runs the setup for this event which includes running window.addEventListener('keyup', ...)
+/* Internally the ON function now runs the setup for this event which includes running
+   window.addEventListener('keyup', ...) in this eventKeys case */
 on('task-shortcut-pressed', callback);
 
-// Another event is registered under the same event key. The setup is not ran again
+/* Another event is registered under the same event key. The setup is not ran again */
 const callback2 = () => console.log('popup probably opening');
 on('task-shortcut-pressed', () => callback2);
 
-// Both callbacks are unregistered
+/* Both callbacks are unregistered */
 off('task-shortcut-pressed', callback);
 off('task-shortcut-pressed', callback2);
 
-// This now is where the bug lies. When the next ON callback is registered for the same event key. the setup function will run again. Setting up another window.addEventListener('keyup', ...)
+/* This now is where the bug lies. When the next ON callback is registered for the same
+   event key the setup function will run again. Setting up another window.addEventListener('keyup', ...) */
 on('task-shortcut-pressed', () => console.log('popup is going to open twice... (╯°□°）╯︵ ┻━┻'));
 
-// In this case, the next time 'T' is pressed on the keyboard the registered ON callbacks will be called twice.
+/* In this case, the next time 'T' is pressed on the keyboard the registered ON callbacks
+   will be called twice. */
 trigger('task-shortcut-pressed');
 ```
 *side-note:* This was a similar test pattern that I used for writing up a unit test after I solved this bug.
 
 This bug had gone unnoticed for many years because we had not come across this particular situation before where both of these conditions had to be true
+
 1. The setup event had to include another event registration. In this case, it was the usage of addEventListener.
+
 2. There had to be a state of the page that resulted in all of the event callbacks being unregistered with **off** then again registered under the same eventKey with **on**.
 
 ### The Fix
@@ -207,7 +220,7 @@ const eventSetups = {
 }
 ```
 
-Then within the **off** function, we call the teardown function when there are no more event listeners for that eventKey. The **on** function was extended in a similar way to call `.setup()`.
+Then within the **off** function, we call the **teardown** function when there are no more event listeners for that **eventKey**. The **on** function was extended in a similar way to call `.setup()`.
 ```js
 function off(eventKey, callback) {
     registeredEventListeners[eventKey] = registeredEventListeners[eventKey].filter(registeredCallback => registeredCallback != callback);
@@ -218,7 +231,7 @@ function off(eventKey, callback) {
 }
 ```
 
-Now next time the **on** function runs another setup during the same page session, the original addEventListener should have been unregistered. Next up I added some unit tests for my new code and the bug was history.
+Now next time the **on** function runs another setup during the same page session, the original **addEventListener** should have been unregistered. Next up I added some unit tests for my new code and the bug was history.
 
 
 ## Q5. Tell us about your most advanced/exciting/mind-blowing JS/CSS implementation
@@ -226,7 +239,7 @@ One of my most *advanced* JS/CSS implementation was the "Schedule Dashboard" in 
 
 The page has two modes to display data:
 
-**TEAM** mode visualizes the amount of work each team member has relative to their work hours/days with the objective of allowing a manager to see who is under-worked or overworked and relocate work appropriately.
+**TEAM** mode visualizes the amount of work each team member has relative to their work hours/days with the objective of allowing a manager to see who is under-worked or over-worked and relocate work appropriately.
 
 ![Team mode screenshot](images/team.png)
 
@@ -255,7 +268,7 @@ For example, clicking on a square in the body of the page would send a message t
 ![Team slide out](images/team-popup.png)
 
 ### Flat Data Structures
-We chose to use flat data structures to simplify the rendering of DOM content to make our code easier to read and maintain. While the data structures were flat the UI appeared nested for the users of the schedule dashboard. Most of the UI on this page has a nested structure to it allowing users to keep expanding nested data.
+We chose to use flat data structures to simplify the rendering of DOM content to make our code easier to read and maintain. It also allowed us keep a flat list of all of the expanded rows without having to traverse a tree data structure. While the data structures were flat the UI appeared nested for the users of the schedule dashboard. Most of the UI on this page has a nested structure to it allowing users to keep expanding nested data.
 
 ![Expanded Nested State](images/work-hover.png)
 
@@ -268,7 +281,7 @@ The solution here was to register scroll event listeners for each pane as the us
 Upfront we decided to add unit tests for data generation, but not for UI during prototyping stages. The reason being is that the UI was still in a prototype phase and big changes were likely to be made. We came back later and added unit tests for the important UI functionality once the UI changes were more stable.
 
 ### Lessons Learnt
-This project at Accelo has influenced the way we have built future projects ever since. Some of these lessons include
+This project at Accelo has influenced the way we have built future projects ever since. While the screen was technically impressive, it was team work and communication that stood out looking back at the project now. Some of these lessons include
 - Prototyping to test assumptions 
 - Breaking down work into small chunks (or phases) to get something working asap
 - Using a similar pattern to [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for managing changes
