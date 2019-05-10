@@ -37,9 +37,10 @@ My experience with Elm comes from a side-project I am working on, having a lot o
 ### When is CORS needed?
 Cross-origin resource sharing (CORS) is a web standard for communicating with servers in a different origin then the original HTML page was served from. Using the CORS standard servers can specify what other origins can have access to a particular resource, and as we will see in the preflighted example below the server can also communicate what HTTP methods and headers can be requested from a particular origin.
 
-There was an assumption in the early days of the web that websites would not need to load resources from other origins and doing so was a security risk. CORS has become a standard as a response to developers working around the cross-origin restriction with JSONP because loading resources from other origins become a useful pattern. Some of the benefits include having to host your own fonts, loading analytics tracking and images. CORS gives web servers fine-grained control over what origins are allowed to access resources and the shape of those requests.
+There was an assumption in the early days of the web that websites would not need to load resources from other origins and doing so was a security risk. CORS has become a standard as a response to developers working around the cross-origin restriction with JSONP because loading resources from other origins has become a useful pattern. Some of the benefits include not having to host your own fonts, images and using data from public sources. CORS gives web servers fine-grained control over what origins are allowed to access resources and the shape of those requests.
 
-For the following examples, we will be using these names for origin and cross-origin server 
+For the following examples, we will be using these names for origin and cross-origin server:
+
 Current origin: `https://client.com` - The origin the initial page was loaded from
 Cross-Origin Server: `https://server.com`
 
