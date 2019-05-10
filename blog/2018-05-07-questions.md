@@ -7,7 +7,7 @@ slug: questions
 ### Benefits
 As an analogy when building a house a builder probably won't begin by making their own bricks or PVC pipes. Likewise, a developer might choose a web framework because it provides some of the standard building blocks of a web application.
 
-When you choose to use a framework over plain javascript you are choosing to hand over some architectural decisions to that framework. Different frameworks include varying amounts of architectural decisions, whatever framework you choose you are choosing some level of abstraction. The abstraction layer that most frameworks provide, with the help of compilers allow for some "syntactic sugar" such as vue's `.vue` files and reacts JSX.
+When you choose to use a framework over plain javascript you are choosing to hand over some architectural decisions to that framework. Different frameworks include varying amounts of architectural decisions, whatever framework you choose you are choosing some level of abstraction. The abstraction layer that most frameworks provide, with the help of compilers, allow for some "syntactic sugar" such as vue's `.vue` files and reacts JSX.
 
 Most frameworks come with opinionated ways of doing common tasks, hopefully allowing developers to spend less time on the infrastructure of their application and more time in the problem domain of the application. Depending on the framework, it might improve code quality because by reducing visible complexity in your code (the framework might be complex but you don't need to know) making the code you write simpler and easier to reason about.
 
@@ -91,9 +91,9 @@ When this might be considered an attack is when the script does something malici
 
 ### How it can be prevented
 #### Escaping
-Escaping involves turning characters into encoded versions that the browser won't confuse for HTML. Escaping should be done before inserting any un-trusted data into a web page that is not intended to be HTML, CSS or JS. There are even cases where [scripts can run in style/CSS blocks](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md#rule-4---css-escape-and-strictly-validate-before-inserting-untrusted-data-into-html-style-property-values) therefore you want to not only encode dynamic un-trusted HTML, but also CSS and JS.
+Escaping involves turning characters into encoded versions that the browser won't confuse for HTML. Escaping should be done before inserting any un-trusted data into a web page that is not intended to be HTML, CSS or JS. There are even cases where [scripts can run in style/CSS blocks](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md#rule-4---css-escape-and-strictly-validate-before-inserting-untrusted-data-into-html-style-property-values), therefore, you want to not only encode dynamic un-trusted HTML, but also CSS and JS.
 #### Sanitizing
-Sanitizing involves stripping content of any potentially exploitable characters in the text. For example, removing specific HTML tags `<script>` before including any un-trusted content on your web page. Sanitizing is useful when a web page needs to allow dynamic HTML, CSS, JS to display on a page which is user-created or from a source outside of your control. When using a sanitizer it is safer to use a whitelist to allow the content you want rather than using a blacklist to ban bad content because blacklisting involves having to know all the potentially exploitable content, although whitelisting is more restrictive.
+Sanitizing involves stripping content of any potentially exploitable characters in the text. For example, removing specific HTML tags `<script>` before including any un-trusted content on your web page. Sanitizing is useful when a web page needs to allow dynamic HTML, CSS, JS to display on a page that is user-created or from a source outside of your control. When using a sanitizer it is safer to use a whitelist to allow the content you want rather than using a blacklist to ban bad content because blacklisting involves having to know all the potentially exploitable content, although whitelisting is more restrictive.
 
 ## Q4. Tell us about your latest "hard to debug" problem. How did you resolve it? Which tools did you use?
 At Accelo we have a custom event messaging system, it is used to broadcast messages and receive messages.
@@ -117,7 +117,7 @@ Once I had a set of reproducible steps, it was time open up the chrome dev tools
 From a call-stack within a breakpoint in the **on** callback, I could see that there were multiple calls from the "keyup" browser event. Opening the "event listeners" tab in the dev tools then revealed that there were multiple "keyup" event listeners being registered from the same location in our code. Now it was time to go digging into where the "keyup" listener was registered.
 
 ### What I found in the existing code
-For some events, we have special setup functions that is called when the first **on** callback is registered for a specific event key.
+For some events, we have special setup functions that are called when the first **on** callback is registered for a specific event key.
 ```js
 const eventSetups = {
     'task-shortcut-pressed': () => {
@@ -268,11 +268,11 @@ For example, clicking on a square in the body of the page would send a message t
 ![Team slide out](images/team-popup.png)
 
 ### Flat Data Structures
-We chose to use flat data structures to simplify the rendering of DOM content to make our code easier to read and maintain. It also allowed us keep a flat list of all of the expanded rows without having to traverse a tree data structure. While the data structures were flat the UI appeared nested for the users of the schedule dashboard. Most of the UI on this page has a nested structure to it allowing users to keep expanding nested data.
+We chose to use flat data structures to simplify the rendering of DOM content to make our code easier to read and maintain. It also allowed us to keep a flat list of all of the expanded rows without having to traverse a tree data structure. While the data structures were flat the UI appeared nested for the users of the schedule dashboard. Most of the UI on this page has a nested structure to it allowing users to keep expanding nested data.
 
 ![Expanded Nested State](images/work-hover.png)
 
-### Synchronised Scrolling Panes
+### Synchronized Scrolling Panes
 The scheduling dashboard consists of three panes that can move independently of one another. These panes needed to be kept in sync, when the body scrolled vertically the left navigation needed to scroll when the date header scrolled horizontally the body needed to scroll etc. To pull this off I quickly realized a problem when one pane would receive a scroll event, it then would trigger scrolling on another pane that would then trigger scrolling on another pane, and this would eventually lead to a stack overflow.
 
 The solution here was to register scroll event listeners for each pane as the user triggers a mouseenter event, then unregister the scroll event as the user triggers a mouseout event on that pane. This solved the infinite loop issue. 
@@ -281,7 +281,7 @@ The solution here was to register scroll event listeners for each pane as the us
 Upfront we decided to add unit tests for data generation, but not for UI during prototyping stages. The reason being is that the UI was still in a prototype phase and big changes were likely to be made. We came back later and added unit tests for the important UI functionality once the UI changes were more stable.
 
 ### Lessons Learnt
-This project at Accelo has influenced the way we have built future projects ever since. While the screen was technically impressive, it was team work and communication that stood out looking back at the project now. Some of these lessons include
+This project at Accelo has influenced the way we have built future projects ever since. While the screen was technically impressive, it was teamwork and communication that stood out looking back at the project now. Some of these lessons include
 - Prototyping to test assumptions 
 - Breaking down work into small chunks (or phases) to get something working asap
 - Using a similar pattern to [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for managing changes
