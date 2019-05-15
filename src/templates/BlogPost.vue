@@ -136,6 +136,10 @@ export default {
       padding-left: 20px;
     }
 
+    .content {
+      margin-bottom: 8rem;
+    }
+
     .content p:first-child {
       margin-top: 15px;
     }
