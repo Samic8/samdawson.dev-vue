@@ -6,7 +6,6 @@
         'blogPostThemeDark': $data.state.styling === $data.state.stylings.Dark,
       }">
         <div class="content" v-html="$page.blogPost.content" />
-        {{$data.state.styling}}
         <button
           class="toggleStyleButton"
           v-on:click="toggleStyling()"
