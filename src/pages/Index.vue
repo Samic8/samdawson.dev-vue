@@ -152,17 +152,24 @@ export default {
   cursor: pointer;
   height: var(--project-unexpanded-height);
   transition: .2s box-shadow, .2s transform, .2s height ease-out;
+  overflow: hidden;
 
   h2 {
     margin: var(--h2-margin) 0;
     font-size: 1rem;
     font-weight: bold;
   }
+
+  &:hover, &:focus {
+    outline: none;
+  }
 }
 
-.project:not(.project--expanded):hover {
-  transform: translate(-.1rem, -.2rem);
-  box-shadow: 1px 2px 4px var(--color-project-shadow);
+.project:not(.project--expanded) {
+  &:hover, &:focus {
+    transform: translate(-.1rem, -.2rem);
+    box-shadow: 1px 2px 4px var(--color-project-shadow);
+  }
 }
 
 .project--expanded {
