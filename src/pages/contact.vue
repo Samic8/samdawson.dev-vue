@@ -47,5 +47,10 @@ export default {
     @include mobileBreakpoint {
         margin-top: 1rem;
     }
+
+    word-break: break-all;
+    @supports (word-break: break-word) {
+        word-break: break-word;
+    }
 }
 </style>
