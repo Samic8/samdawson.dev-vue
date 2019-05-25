@@ -11,6 +11,8 @@
     "@gridsome/remark-prismjs": "0.0.5",
     "@gridsome/source-filesystem": "^0.3.0",
     "@gridsome/transformer-remark": "^0.2.1",
+    "d3-hexbin": "^0.2.2",
+    "d3-selection": "^1.4.0",
     "gridsome": "^0.5.0",
     "prismjs": "^1.16.0",
     "vue-svg-loader": "^0.12.0"

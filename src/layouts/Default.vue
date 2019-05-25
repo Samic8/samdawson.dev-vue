@@ -67,8 +67,10 @@
 }
 
 .header {
+  position: relative;
+  overflow: hidden;
   padding: 2rem 0 3rem;
-  background: linear-gradient(180deg, rgba(30, 84, 128, 0.8) 0%, rgba(12, 36, 54, 0.8) 100%);
+  background: linear-gradient(222.03deg, rgba(102, 55, 151, 0.8) -16.2%, rgba(31, 74, 107, 0.8) 92.84%);
   
   @include mobileBreakpoint {
     height: auto;
@@ -119,6 +121,7 @@
 }
 
 .accountLinks {
+  z-index: 1;
   align-self: flex-start;
   display: flex;
   margin-left: auto;
@@ -134,10 +137,15 @@
 
 .accountLinks__link {
   color: var(--color-white);
+  display: flex;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
   &:hover, &:focus {
     outline: 0;
     transition: .2s color ease-in-out;
-    color: var(--color-alias-interaction);
+    color: var(--color-blue-grey);
+    background-color: white;
   }
 
   &:not(:last-child) {
@@ -154,6 +162,88 @@
   color: #fff;
   margin-top:0;
 }
+
+.hexagonGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+.hexagon {
+	fill: linear-gradient(180deg, rgba(50, 50, 50, 0.2) 0%, rgba(87, 87, 87, 0) 100%);
+}
+
+.foo {
+	opacity: 0;
+	@keyframes foo {
+		0% {
+			opacity: 0;
+		}
+		20% {
+			opacity: .1;
+		}
+		40% {
+			opacity: .17;
+		}
+		60% {
+			opacity: .10;
+		}
+		80% {
+			opacity: .05;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	animation: foo ease 20s infinite;
+}
+.bar {
+	opacity: 0;
+	@keyframes bar {
+		0% {
+			opacity: 0;
+		}
+		60% {
+			opacity: .05;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	animation: bar ease-out 20s infinite;
+}
+.bin {
+	opacity: 0;
+	@keyframes bin {
+		0% {
+			opacity: 0;
+		}
+		60% {
+			opacity: .05;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	animation: bin ease-in 20s infinite;
+}
+.faa {
+	opacity: 0;
+	@keyframes faa {
+		0% {
+			opacity: 0;
+		}
+		60% {
+			opacity: .01;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	animation: faa ease 20s infinite;
+}
 </style>
 
 <script>
@@ -161,6 +251,9 @@ import github from '~/assets/github.svg'
 import gitlab from '~/assets/gitlab.svg'
 import codepen from '~/assets/codepen.svg'
 import ChangingWords from '~/components/ChangingWords.vue'
+import { select } from 'd3-selection';
+import { hexbin } from 'd3-hexbin';
+
 export default {
   props: {
     page: String,
@@ -188,6 +281,58 @@ export default {
 
       return titles[this.page];
     },
-  }
+  },
+  mounted: () => {
+    let width = window.innerWidth,
+    height = document.querySelector('header').clientHeight,
+    hexRadius = 50,
+    MapRows = Math.ceil(height / hexRadius),
+    MapColumns = Math.ceil(width / hexRadius),
+    lastClass;
+
+    //Calculate the center positions of each hexagon 
+    var points = [];
+    for (var i = 0; i < MapRows; i++) {
+        for (var j = 0; j < MapColumns; j++) {
+            points.push([hexRadius * j * 1.75, hexRadius * i * 1.5]);
+        }
+    }
+
+    //Create SVG element
+    var svg = select("header").append("svg")
+        .attr('class', 'hexagonGrid')
+        .attr("width", width)
+        .attr("height", height)
+        .append("g");
+
+    //Set the hexagon radius
+    var hexbinGen = hexbin().radius(hexRadius);
+
+    //Draw the hexagons
+    svg.append("g")
+        .selectAll(".hexagon")
+        .data(hexbinGen(points))
+        .enter().append("path")
+        .attr("class", () => "hexagon " + getRandomClass())
+      .style("animation-delay", () => Math.floor(Math.random() * 10) + "s")
+        .attr("d", function (d) {
+            return "M" + d.x + "," + d.y + hexbinGen.hexagon();
+        })
+
+    function getRandomClass() {
+      const classes = {
+        0: 'foo',
+        1: 'bar',
+        2: 'bin',
+        3: 'faa',
+      };
+      
+      const className = classes[Math.floor(Math.random() * 3)];
+      if (lastClass === className) return getRandomClass();
+      lastClass = className;
+      return className;
+    }
+
+  },
 }
 </script>
