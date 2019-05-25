@@ -15,7 +15,6 @@ export default {
 
 .sidebar {
   box-sizing: border-box;
-  border-right: 1px solid #F1F2F4;
   padding: 0 var(--sidebar-padding);
 }
 </style>
