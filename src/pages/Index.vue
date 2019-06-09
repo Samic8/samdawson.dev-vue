@@ -13,6 +13,15 @@
       </ul>
     </sidebar>
     <MainContent>
+      <h1>Posts</h1>
+      <ul>
+        <li
+          v-for="post in $page.allBlogPost.edges"
+          v-bind:key="post.id"
+          >
+          <g-link v-bind:to="post.node.slug" class="link">{{post.node.title}}</g-link>
+        </li>
+      </ul>
       <h1>Projects</h1>
       <ul class="projects">
         <li
@@ -73,6 +82,15 @@ query {
       }
     }
   }
+  allBlogPost {
+    edges {
+      node {
+        id
+        title
+        slug
+      }
+    }
+  } 
 }
 </page-query>
 

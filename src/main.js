@@ -16,5 +16,9 @@ export default function (Vue, { router, head, isClient }) {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Muli:400,600,700'
   })
+  head.script.push({
+    src: 'https://static.codepen.io/assets/embed/ei.js',
+    body: true
+  })
 }
 

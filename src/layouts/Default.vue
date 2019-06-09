@@ -275,7 +275,7 @@ export default {
     },
     getMainLinkTitle() {
       const titles = {
-        contact: 'Back to Projects',
+        contact: 'Back to Homepage',
         home: 'Get in Touch',
       };
 

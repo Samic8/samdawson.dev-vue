@@ -1,19 +1,22 @@
 <template>
-    <div
-      class="article"
-      v-bind:class="{
-        'blogPostThemeLight': $data.state.styling === $data.state.stylings.Light,
-        'blogPostThemeDark': $data.state.styling === $data.state.stylings.Dark,
-      }">
-        <div class="content" v-html="$page.blogPost.content" />
-        <button
-          class="toggleStyleButton"
-          v-on:click="toggleStyling()"
-          v-bind:title="`Toggle to ${getOppositeMode()} Mode`">
-          <moon v-if="$data.state.styling === $data.state.stylings.Light"></moon>
-          <sun v-if="$data.state.styling === $data.state.stylings.Dark"></sun>
-        </button>
-    </div>
+  <Layout v-bind:page="'contact'">
+    <Sidebar></Sidebar>
+      <div
+        class="article"
+        v-bind:class="{
+          'blogPostThemeLight': $data.state.styling === $data.state.stylings.Light,
+          'blogPostThemeDark': $data.state.styling === $data.state.stylings.Dark,
+        }">
+          <div class="content" v-html="$page.blogPost.content" />
+          <button
+            class="toggleStyleButton"
+            v-on:click="toggleStyling()"
+            v-bind:title="`Toggle to ${getOppositeMode()} Mode`">
+            <moon v-if="$data.state.styling === $data.state.stylings.Light"></moon>
+            <sun v-if="$data.state.styling === $data.state.stylings.Dark"></sun>
+          </button>
+      </div>
+  </Layout>
 </template>
 
 <script>
@@ -100,9 +103,8 @@ export default {
 
   .article {
     margin-top: 15px;
-    margin: 1rem auto;
+    margin: 1rem 0 0 var(--main-content-padding);
     max-width: 60rem;
-    padding: 0 1rem;
 
     h4 {
       margin-bottom: .2rem;
