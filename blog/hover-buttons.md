@@ -1,5 +1,5 @@
 ---
-title: Better moving button hovers
+title: Better button hover states
 slug: hover-buttons
 ---
 
