@@ -103,7 +103,7 @@ export default {
 
   .article {
     margin-top: 15px;
-    margin: 1rem 0 0 var(--main-content-padding);
+    margin: 1rem var(--main-content-padding) 0 var(--main-content-padding);
     max-width: 60rem;
 
     h4 {

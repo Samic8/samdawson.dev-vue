@@ -224,7 +224,7 @@ export default {
 }
 
 .techList__tech {
-  @include mobileBreakpoint {
+  @include midBreakpoint {
     display: inline;
     &:not(:last-child)::after {
       content: '•';

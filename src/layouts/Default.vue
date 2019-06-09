@@ -61,7 +61,7 @@
   grid-auto-flow: dense;
   padding-bottom: 1.5rem;
 
-  @include mobileBreakpoint {
+  @include midBreakpoint {
     --template-columns: 1fr;
   }
 }
