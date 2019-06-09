@@ -42,6 +42,7 @@ body {
 .link {
     display: inline-block;
     cursor: pointer;
+    transition: .1s background-color ease;
 
     &::after {
         content: '';
@@ -49,14 +50,13 @@ body {
         height: 4px;
         width: 80%;
         background-color: var(--color-light-purple);
+        transition: .15s width ease, .1s background-color ease;
     }
 
     &:hover, &:focus {
-        transition: .1s background-color ease;
         outline: 0;
 
         &::after {
-            transition: .15s width ease, .1s background-color ease;
             width: 100%;
             background-color: var(--color-alias-interaction);
         }
