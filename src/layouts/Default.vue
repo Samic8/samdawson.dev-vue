@@ -1,13 +1,15 @@
 <template>
   <div>
     <header class="header">
+      <div class="header__left">
+        <g-image src="~/assets/greyHeadshot.jpg" class="gravatar"/>
+      </div>
       <section class="header__content">
         <div class="header__content__top">
           <p class="headerWords">
             Hi, I'm Sam. I build <ChangingWords></ChangingWords><br>
             websites and apps.
           </p>
-          <img class="gravatar" src="https://www.gravatar.com/avatar/ae9d9a4d587dc7d70e9787e4fa9ec052" alt="Headshot of myself" />
           <div class="accountLinks">
             <a
               href="https://codepen.io/Samic8/"
@@ -68,8 +70,9 @@
 
 .header {
   position: relative;
+  display: flex;
   overflow: hidden;
-  padding: 2rem 0 3rem;
+  padding: 2rem 0 3rem var(--sidebar-padding);
   background: linear-gradient(222.03deg, rgba(102, 55, 151, 0.8) -16.2%, rgba(31, 74, 107, 0.8) 92.84%);
   
   @include mobileBreakpoint {
@@ -78,8 +81,19 @@
   }
 }
 
+.header__left {
+  width: calc(var(--sidebar-size) - var(--sidebar-padding));
+  @include midBreakpoint {
+    width: auto;
+  }
+  @include mobileBreakpoint {
+    padding-left: var(--sidebar-padding);
+  }
+}
+
 .header__content {
-  --margin-left: calc(var(--main-content-padding) + var(--sidebar-size));
+  flex: 1 1 auto;
+  --margin-left: var(--main-content-padding);
   position: relative;
   margin-left: var(--margin-left);
   margin-right: var(--main-content-padding);
@@ -95,19 +109,12 @@
 
 .gravatar {
   --margin-left: 88px;
+  left: var(--sidebar-padding);
   flex: 0 0 auto;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+  width: 118px;
+  border-radius: 10px;
   box-shadow: 0px 3px 10px rgba(2, 3, 4, 0.3);
   transition: .2s box-shadow ease-out, .2s transform ease-out;
-  margin-left: var(--margin-left);
-
-  @include mobileBreakpoint {
-    --margin-left: auto;
-    width: 50px;
-    height: 50px;
-  }
 
   @media screen and (max-width: 480px) {
     --margin-left: auto;
