@@ -117,13 +117,7 @@
   transition: .2s box-shadow ease-out, .2s transform ease-out;
 
   @media screen and (max-width: 480px) {
-    --margin-left: auto;
-    position: absolute;
-    right: 0;
-    top: 2.5rem;
-    width: 40px;
-    height: 40px;
-    box-shadow: none;
+    width: 70px;
   }
 }
 
