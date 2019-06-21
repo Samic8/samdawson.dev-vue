@@ -41,7 +41,7 @@
         </g-link>
       </section>
     </header>
-    <div class="layout">
+    <div >
       <slot/>
     </div>
   </div>
@@ -54,18 +54,6 @@
   font-family: -system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: .9rem;
   font-weight: normal;
-}
-
-.layout {
-  --template-columns: minmax(200px, var(--sidebar-size)) 1fr;
-  display: grid;
-  grid-template-columns: var(--template-columns);
-  grid-auto-flow: dense;
-  padding-bottom: 1.5rem;
-
-  @include midBreakpoint {
-    --template-columns: 1fr;
-  }
 }
 
 .header {

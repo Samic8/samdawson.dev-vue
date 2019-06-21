@@ -1,69 +1,71 @@
 <template>
   <Layout v-bind:page="'home'">
-    <Sidebar>
-      <h1>Tech</h1>
-      <ul class="techList">
-        <li
-          v-for="tech in $data.techs"
-          v-bind:key="tech"
-          class="techList__tech"
-          style="margin-bottom: .2rem">
-          {{tech}}
-        </li>
-      </ul>
-    </sidebar>
-    <MainContent>
-      <h1>Posts</h1>
-      <ul>
-        <li
-          v-for="post in $page.allBlogPost.edges"
-          v-bind:key="post.id"
-          >
-          <g-link v-bind:to="post.node.slug" class="link">{{post.node.title}}</g-link>
-        </li>
-      </ul>
-      <h1>Projects</h1>
-      <ul class="projects">
-        <li
-          tabindex="0"
-          class="project"
-          v-for="project in $page.allProject.edges"
-          v-bind:key="project.id"
-          v-bind:class="{'project--expanded': $data.expandedProjectIds.includes(project.node.id)}"
-          v-on:click="setExpanded(project.node.id)"
-          @keypress.13="setExpanded(project.node.id)"
-          >
-          <div class="project__group">
-            <b>{{project.node.name}}</b>
-            <div class="project__highlight">
-              {{project.node.mainTech}}
-              <div
-                class="techSquare"
-                style="margin-left:9px"
-                v-bind:class="project.node.mainTech">
+    <div class="layout">
+      <Sidebar>
+        <h1>Tech</h1>
+        <ul class="techList">
+          <li
+            v-for="tech in $data.techs"
+            v-bind:key="tech"
+            class="techList__tech"
+            style="margin-bottom: .2rem">
+            {{tech}}
+          </li>
+        </ul>
+      </sidebar>
+      <MainContent>
+        <h1>Posts</h1>
+        <ul>
+          <li
+            v-for="post in $page.allBlogPost.edges"
+            v-bind:key="post.id"
+            >
+            <g-link v-bind:to="post.node.slug" class="link">{{post.node.title}}</g-link>
+          </li>
+        </ul>
+        <h1>Projects</h1>
+        <ul class="projects">
+          <li
+            tabindex="0"
+            class="project"
+            v-for="project in $page.allProject.edges"
+            v-bind:key="project.id"
+            v-bind:class="{'project--expanded': $data.expandedProjectIds.includes(project.node.id)}"
+            v-on:click="setExpanded(project.node.id)"
+            @keypress.13="setExpanded(project.node.id)"
+            >
+            <div class="project__group">
+              <b>{{project.node.name}}</b>
+              <div class="project__highlight">
+                {{project.node.mainTech}}
+                <div
+                  class="techSquare"
+                  style="margin-left:9px"
+                  v-bind:class="project.node.mainTech">
+                </div>
               </div>
             </div>
-          </div>
-          <section v-if="$data.expandedProjectIds.includes(project.node.id)">
-            <div
-              class="contentFont">
-              {{project.node.description}}.
-            </div>
-            <h2 style="margin-bottom: .3rem">All Tech</h2>
-            <span
-              v-for="tech in project.node.otherTechs.split(' ')"
-              v-bind:key="tech"
-              class="contentFont">
-              {{tech}}
-              <span v-if="!project.node.otherTechs.endsWith(tech)">&bull;</span>
-            </span>
-            <div class="flex justify-content-flex-end marg-auto-top" style="margin-top: .3rem">
-              <a v-bind:href="project.node.link" target="_blank" class="link">See Project...</a>
-            </div>
-          </section>
-        </li>
-      </ul>
-    </MainContent>
+            <section v-if="$data.expandedProjectIds.includes(project.node.id)">
+              <div
+                class="contentFont">
+                {{project.node.description}}.
+              </div>
+              <h2 style="margin-bottom: .3rem">All Tech</h2>
+              <span
+                v-for="tech in project.node.otherTechs.split(' ')"
+                v-bind:key="tech"
+                class="contentFont">
+                {{tech}}
+                <span v-if="!project.node.otherTechs.endsWith(tech)">&bull;</span>
+              </span>
+              <div class="flex justify-content-flex-end marg-auto-top" style="margin-top: .3rem">
+                <a v-bind:href="project.node.link" target="_blank" class="link">See Project...</a>
+              </div>
+            </section>
+          </li>
+        </ul>
+      </MainContent>
+    </div>
   </Layout>
 </template>
 
@@ -141,6 +143,18 @@ export default {
   --project-unexpanded-height: 57px;
   --projects-grid-gap: #{$project-grid-gap};
   --color-project-shadow: rgba(87, 87, 87, 0.22);
+}
+
+.layout {
+  --template-columns: minmax(200px, var(--sidebar-size)) 1fr;
+  display: grid;
+  grid-template-columns: var(--template-columns);
+  grid-auto-flow: dense;
+  padding-bottom: 1.5rem;
+
+  @include midBreakpoint {
+    --template-columns: 1fr;
+  }
 }
 
 .techList {
