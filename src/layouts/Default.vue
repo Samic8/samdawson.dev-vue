@@ -2,7 +2,7 @@
   <div>
     <header class="header">
       <div class="header__left">
-        <g-image src="~/assets/greyHeadshot.jpg" class="gravatar"/>
+        <g-image src="~/assets/greyHeadshot.jpg" class="gravatar" width="118px"/>
       </div>
       <section class="header__content">
         <div class="header__content__top">
