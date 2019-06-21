@@ -139,7 +139,7 @@ export default {
 
 :root {
   --project-unexpanded-height: 57px;
-  --projects-grid-gap: 18px;
+  --projects-grid-gap: #{$project-grid-gap};
   --color-project-shadow: rgba(87, 87, 87, 0.22);
 }
 

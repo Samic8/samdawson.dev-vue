@@ -21,6 +21,7 @@
     --sidebar-size: 250px;
     --sidebar-padding: 50px;
     --main-content-padding: #{$main-content-padding};
+    --main-content-max-width: #{($project-grid-gap * 2) + ($project-width * 3)};
 
     /* Spacing */
     --h2-margin: 1.2rem;

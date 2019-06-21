@@ -96,6 +96,7 @@
   position: relative;
   margin-left: var(--margin-left);
   margin-right: var(--main-content-padding);
+  max-width: var(--main-content-max-width);
 
   @include midBreakpoint {
     --margin-left: var(--sidebar-padding);
