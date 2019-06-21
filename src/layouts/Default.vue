@@ -71,7 +71,6 @@
 .header {
   position: relative;
   display: flex;
-  overflow: hidden;
   padding: 2rem 0 3rem var(--sidebar-padding);
   background: linear-gradient(222.03deg, rgba(102, 55, 151, 0.8) -16.2%, rgba(31, 74, 107, 0.8) 92.84%);
   
@@ -165,6 +164,7 @@
 }
 
 .hexagonGrid {
+  overflow: visible;
   position: absolute;
   top: 0;
   left: 0;
@@ -173,7 +173,7 @@
 
 
 .hexagon {
-	fill: linear-gradient(180deg, rgba(50, 50, 50, 0.2) 0%, rgba(87, 87, 87, 0) 100%);
+
 }
 
 .foo {
