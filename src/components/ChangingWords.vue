@@ -9,12 +9,18 @@
 </template>
 
 <style lang="scss" scoped>
+@import '~/assets/mixins.scss';
+
 .changingWords {
   position: relative;
   display: inline-block;
   width: 5rem;
   height: var(--header-words-font-size);
   top: -0.16rem;
+
+  @include mobileBreakpoint {
+    top: 0.27rem;
+  }
 }
 
 .word {

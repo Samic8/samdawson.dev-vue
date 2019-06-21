@@ -162,6 +162,10 @@
   font-size: var(--header-words-font-size);
   color: #fff;
   margin-top:0;
+
+  @include mobileBreakpoint {
+    font-size: 1rem;
+  }
 }
 
 .hexagonGrid {
