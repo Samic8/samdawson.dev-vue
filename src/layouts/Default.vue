@@ -61,6 +61,7 @@
   display: flex;
   padding: 2rem 0 3rem var(--sidebar-padding);
   background: linear-gradient(222.03deg, rgba(102, 55, 151, 0.8) -16.2%, rgba(31, 74, 107, 0.8) 92.84%);
+  overflow: hidden;
   
   @include mobileBreakpoint {
     height: auto;
